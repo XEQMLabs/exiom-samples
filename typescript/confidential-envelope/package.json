@@ -1,0 +1,9 @@
+{
+  "name": "exiom-sample-confidential-envelope-ts",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "npx tsx src/demo.ts" },
+  "dependencies": { "tweetnacl": "^1.0.3", "tweetnacl-sealedbox-js": "^1.2.0" },
+  "devDependencies": { "tsx": "^4" },
+  "engines": { "node": ">=18" }
+}

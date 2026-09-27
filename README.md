@@ -20,8 +20,9 @@ Base URL for every sample: `https://api.exiom.network`
 | **policy-verification** | Call the **verification engine** (`/v1/verifications`) and handle every outcome | TypeScript, Python |
 | **wallet-ownership** | Prove a user controls an external wallet (MetaMask) and bind it to a DID | TypeScript |
 | **credentials** | Issue a credential and present only selected fields (selective disclosure) | TypeScript, Python |
+| **confidential-envelope** | End-to-end encrypted store-and-forward (libsodium sealed boxes) | TypeScript |
 
-- TypeScript: [`kyc-gate`](typescript/kyc-gate) · [`policy-verification`](typescript/policy-verification) · [`wallet-ownership`](typescript/wallet-ownership) · [`credentials`](typescript/credentials)
+- TypeScript: [`kyc-gate`](typescript/kyc-gate) · [`policy-verification`](typescript/policy-verification) · [`wallet-ownership`](typescript/wallet-ownership) · [`credentials`](typescript/credentials) · [`confidential-envelope`](typescript/confidential-envelope)
 - Python: [`kyc_gate`](python/kyc_gate) · [`policy_verification`](python/policy_verification) · [`credentials`](python/credentials)
 
 ## Principles these samples follow (please keep them when you copy)
