@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><title>EXIOM KYC Gate — sample</title>
+<style>body{font-family:system-ui,sans-serif;max-width:640px;margin:40px auto;padding:0 16px;line-height:1.5}
+input,button{font:inherit;padding:8px 10px;border-radius:8px;border:1px solid #ccc}
+button{background:#0d7d88;color:#fff;border:none;cursor:pointer}
+pre{background:#0e1620;color:#d6e2ea;padding:14px;border-radius:10px;overflow:auto;font-size:13px}
+.ok{color:#1f9d57;font-weight:600}.no{color:#c2453b;font-weight:600}</style></head><body>
+<h1>EXIOM KYC Gate</h1>
+<p>Enter a wallet address and a jurisdiction bit id. The backend issues a platform-signed
+compliance claim (never exposing the API key) and grants only allow-listed jurisdictions.</p>
+<p><input id="addr" size="46" placeholder="0x1111111111111111111111111111111111111111">
+<input id="jid" size="4" placeholder="3" value="3">
+<button onclick="go()">Check &amp; issue claim</button></p>
+<p id="verdict"></p>
+<pre id="out">(result appears here)</pre>
+<script>
+async function go(){
+  const address=document.getElementById('addr').value.trim()
+  const jurisdiction_id=Number(document.getElementById('jid').value)
+  const v=document.getElementById('verdict'), out=document.getElementById('out')
+  v.textContent='…'; out.textContent=''
+  const r=await fetch('/api/gate',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({address,jurisdiction_id})})
+  const j=await r.json()
+  v.innerHTML = j.granted ? '<span class="ok">GRANTED</span> — claim issued'
+                          : '<span class="no">DENIED</span> — '+(j.reason||'')
+  out.textContent=JSON.stringify(j,null,2)
+}
+</script></body></html>

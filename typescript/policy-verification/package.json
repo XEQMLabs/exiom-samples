@@ -1,0 +1,14 @@
+{
+  "name": "exiom-sample-policy-verification-ts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx src/verify.ts"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "tsx": "^4"
+  }
+}
